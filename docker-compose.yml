@@ -29,14 +29,14 @@ services:
       - postgres_data:/var/lib/postgresql/data # Для сохранения данных между перезапусками
     networks:
       - dev
-    depends_on:
-      - backend
 
   backend:
     build:
       context: ./backend/world-country-monitoring
     networks:
       - dev
+    depends_on:
+      - postgres
 
   frontend:
     build:
