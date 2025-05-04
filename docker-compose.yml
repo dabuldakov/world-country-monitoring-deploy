@@ -33,6 +33,8 @@ services:
   backend:
     build:
       context: ./backend
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/
     networks:
       - dev
     depends_on:

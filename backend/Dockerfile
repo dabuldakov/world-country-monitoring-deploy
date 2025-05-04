@@ -1,6 +1,5 @@
-# Используйте базовый образ с OpenJDK 21
-FROM openjdk:21-jdk-slim AS build
-# FROM nicb-registry.gts.rus.socgen/nicb/alpine-openjdk-21-gcompat:5 AS build
+#Build stage
+FROM gradle:latest AS BUILD
 
 # Установите необходимые инструменты
 RUN apt-get update  \
@@ -17,23 +16,17 @@ RUN git clone https://github.com/dabuldakov/world-country-monitoring.git
 # Установите рабочую директорию
 WORKDIR /app/world-country-monitoring
 
-# Сделайте Gradle исполняемым
-RUN chmod +x gradlew
-
-# Соберите приложение
-RUN ./gradlew build --no-daemon
+RUN gradle build
 
 # Запуск конечного образа
 FROM openjdk:21-jdk-slim
-#FROM nicb-registry.gts.rus.socgen/nicb/alpine-openjdk-21-gcompat:5
 
-# Установите рабочую директорию
-WORKDIR /app/world-country-monitoring
+ENV JAR_NAME=infrastructure.jar
+ENV APP_HOME=/app/world-country-monitoring/infrastructure
+WORKDIR $APP_HOME
 
 # Скопируйте скомпилированное приложение из стадии сборки
-# COPY /infrastructure/build/libs/infrastructure.jar world-country-monitoring.jar
-# COPY /build/libs/world-country-monitoring.jar app.jar
-COPY --from=build /build/libs/world-country-monitoring.jar app.jar
+COPY --from=BUILD $APP_HOME .
 
 # Укажите команду для запуска приложения
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT exec java -jar $APP_HOME/build/libs/$JAR_NAME
