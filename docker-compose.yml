@@ -41,6 +41,8 @@ services:
   frontend:
     build:
       context: ./frontend
+    environment:
+      API_URL: /api
     networks:
       - dev
 
