@@ -42,7 +42,7 @@ services:
     build:
       context: ./frontend
     environment:
-      API_URL: /api
+      REACT_APP_API_URL: /api
     networks:
       - dev
 
