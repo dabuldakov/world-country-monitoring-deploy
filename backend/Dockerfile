@@ -1,5 +1,5 @@
 #Build stage
-FROM gradle:latest AS BUILD
+FROM gradle:latest AS build
 
 # Установите необходимые инструменты
 RUN apt-get update  \
@@ -27,7 +27,7 @@ ENV APP_HOME=/app/world-country-monitoring/infrastructure
 WORKDIR $APP_HOME
 
 # Скопируйте скомпилированное приложение из стадии сборки
-COPY --from=BUILD $APP_HOME .
+COPY --from=build $APP_HOME .
 
 # Укажите команду для запуска приложения
 ENTRYPOINT exec java -jar $APP_HOME/build/libs/$JAR_NAME
