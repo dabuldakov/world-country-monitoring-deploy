@@ -32,6 +32,8 @@ services:
     build:
       context: ./backend
     environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: sgEW35656fdf
       POSTGRES_URL: jdbc:postgresql://postgres:5432/
     networks:
       - dev
