@@ -3,14 +3,14 @@ networks:
 
 services:
   nginx:
-    image: nginx:stable-alpine
     ports:
       - "8097:8097"
+    build:
+      context: ./frontend
     volumes:
       - './nginx.conf:/etc/nginx/nginx.conf'
-    depends_on:
-      - backend
-      - frontend
+    environment:
+      REACT_APP_API_URL: /api
     networks:
       - dev
 
@@ -39,14 +39,6 @@ services:
       - dev
     depends_on:
       - postgres
-
-  frontend:
-    build:
-      context: ./frontend
-    environment:
-      REACT_APP_API_URL: /api
-    networks:
-      - dev
 
 volumes:
   postgres_data:
