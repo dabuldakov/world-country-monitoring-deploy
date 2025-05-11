@@ -7,8 +7,8 @@ COPY . .
 
 WORKDIR /app
 
-ARG REPO_URL_V_5=https://github.com/dabuldakov/world-country-monitoring-front.git
-RUN git clone ${REPO_URL_V_5}
+ARG REPO_URL_V_6=https://github.com/dabuldakov/world-country-monitoring-front.git
+RUN git clone ${REPO_URL_V_6}
 
 # Установите рабочую директорию
 WORKDIR /app/world-country-monitoring-front
