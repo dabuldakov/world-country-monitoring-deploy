@@ -5,11 +5,14 @@ RUN apk add --no-cache git
 
 WORKDIR /app
 
-ARG REPO_URL_V_6=https://github.com/dabuldakov/world-country-monitoring-front.git
-RUN git clone ${REPO_URL_V_6}
+ARG REPO_URL_V_7=https://github.com/dabuldakov/world-country-monitoring-front.git
+RUN git clone ${REPO_URL_V_7}
 
 # Установите рабочую директорию
 WORKDIR /app/world-country-monitoring-front
+
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
 RUN npm install
 RUN npm run build
