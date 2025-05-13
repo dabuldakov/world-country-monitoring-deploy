@@ -10,7 +10,7 @@ services:
     volumes:
       - './nginx.conf:/etc/nginx/nginx.conf'
     environment:
-      REACT_APP_API_URL: http://176.209.237.111:8097/api
+      REACT_APP_API_URL: /api
     networks:
       - dev
 
