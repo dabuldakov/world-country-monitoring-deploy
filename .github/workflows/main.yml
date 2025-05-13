@@ -1,0 +1,12 @@
+name: Deploy to Local Server
+on: [push]
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run deploy script
+        run: |
+          echo "Deploying to local server..."
+          ./deploy.sh
