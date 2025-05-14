@@ -11,5 +11,5 @@ jobs:
       - name: Run deploy script
         run: |
           echo "Deploying to local server..."
-          chmod +x ./deploy.sh
+          chmod +x ./.github/workflows/deploy.yml
           ./.github/workflows/deploy.yml
