@@ -5,8 +5,8 @@ RUN apk add --no-cache git
 
 WORKDIR /app
 
-ARG REPO_URL_V_9=https://github.com/dabuldakov/world-country-monitoring-front.git
-RUN git clone ${REPO_URL_V_9}
+ARG REPO_URL_V_10=https://github.com/dabuldakov/world-country-monitoring-front.git
+RUN git clone ${REPO_URL_V_10}
 
 # Установите рабочую директорию
 WORKDIR /app/world-country-monitoring-front
