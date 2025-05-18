@@ -1,6 +1,3 @@
-# Set variables before RUN
-ARG REACT_APP_API_URL
-
 FROM node:alpine as build
 
 # Установка git и других необходимых инструментов
@@ -11,13 +8,11 @@ WORKDIR /app
 ARG REPO_URL_V_19=https://github.com/dabuldakov/world-country-monitoring-front.git
 RUN git clone ${REPO_URL_V_19}
 
-ENV REACT_APP_API_URL=$REACT_APP_API_URL
-
 # Установите рабочую директорию
 WORKDIR /app/world-country-monitoring-front
 
 RUN npm install
-RUN npm run build
+RUN REACT_APP_API_URL=/api npm run build
 
 FROM nginx:stable-alpine
 
