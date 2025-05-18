@@ -8,8 +8,8 @@ RUN apk add --no-cache git
 
 WORKDIR /app
 
-ARG REPO_URL_V_16=https://github.com/dabuldakov/world-country-monitoring-front.git
-RUN git clone ${REPO_URL_V_16}
+ARG REPO_URL_V_17=https://github.com/dabuldakov/world-country-monitoring-front.git
+RUN git clone ${REPO_URL_V_17}
 
 ENV REACT_APP_API_URL=$REACT_APP_API_URL
 
