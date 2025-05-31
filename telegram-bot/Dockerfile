@@ -11,8 +11,8 @@ RUN apt-get update  \
 WORKDIR /app
 
 # Клонируйте репозиторий
-ARG REPO_URL_V_3=https://github.com/dabuldakov/telegram-bot.git
-RUN git clone ${REPO_URL_V_3}
+ARG REPO_URL_V_4=https://github.com/dabuldakov/telegram-bot.git
+RUN git clone ${REPO_URL_V_4}
 
 # Установите рабочую директорию
 WORKDIR /app/telegram-bot
