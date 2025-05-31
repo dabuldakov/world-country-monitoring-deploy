@@ -11,4 +11,5 @@ docker-compose up --build
 Connect to server via SSH and run commands. 
  - git clone https://github.com/world-country-monitoring-deploy.git
  - cd world-country-monitoring-deploy
+ - add file my-secrets.env in project root and secrets inside file
  - docker-compose up --build
