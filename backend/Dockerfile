@@ -11,8 +11,8 @@ RUN apt-get update  \
 WORKDIR /app
 
 # Клонируйте репозиторий
-ARG REPO_URL_V_16=https://github.com/dabuldakov/world-country-monitoring.git
-RUN git clone ${REPO_URL_V_16}
+ARG REPO_URL_V_17=https://github.com/dabuldakov/world-country-monitoring.git
+RUN git clone ${REPO_URL_V_17}
 
 # Установите рабочую директорию
 WORKDIR /app/world-country-monitoring
