@@ -20,7 +20,7 @@ WORKDIR /app/world-country-monitoring
 RUN gradle build
 
 # Запуск конечного образа
-FROM eclipse-temurin:21-jdk-alpine
+FROM eclipse-temurin:21-jdk
 
 ENV JAR_NAME=infrastructure.jar
 ENV APP_HOME=/app/world-country-monitoring/infrastructure
