@@ -20,7 +20,7 @@ WORKDIR /app/telegram-bot
 RUN gradle build
 
 # Запуск конечного образа
-FROM eclipse-temurin:21-jdk-slim
+FROM eclipse-temurin:21-jdk-alpine
 
 ENV JAR_NAME=infrastructure.jar
 ENV APP_HOME=/app/telegram-bot/infrastructure
