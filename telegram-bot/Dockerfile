@@ -1,5 +1,5 @@
 #Build stage
-FROM gradle:latest AS build
+FROM gradle:8.5-jdk21 AS build
 
 # Установите необходимые инструменты
 RUN apt-get update  \
@@ -17,10 +17,10 @@ RUN git clone ${REPO_URL_V_10}
 # Установите рабочую директорию
 WORKDIR /app/telegram-bot
 
-RUN gradle build
+RUN gradle build --no-daemon
 
 # Запуск конечного образа
-FROM eclipse-temurin:21-jdk
+FROM eclipse-temurin:21-jre-alpine
 
 ENV JAR_NAME=infrastructure.jar
 ENV APP_HOME=/app/telegram-bot/infrastructure
