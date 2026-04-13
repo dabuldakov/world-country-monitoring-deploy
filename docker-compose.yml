@@ -13,14 +13,14 @@ services:
       - dev
 
   postgres:
-    image: postgres:latest
+    image: postgres:17
     ports:
       - "5433:5432"
     env_file:
       - my-secrets.env
     volumes:
       - ./init_postgres_db.sql:/docker-entrypoint-initdb.d/init_postgres_db.sql
-      - postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql/data
     networks:
       - dev
 
